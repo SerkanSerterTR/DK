@@ -70,10 +70,109 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="date"></param>
         /// <param name="dateTimeFormat"></param>
-        /// <returns></returns>
+        /// <returns>DateTime</returns>
         public static string xToString(this DateTime date, DateTimeFormat dateTimeFormat = DateTimeFormat.DayMonthYear)
         {
             return string.Format(GetDateFormat(dateTimeFormat), date);
+        }
+
+        /// <summary>
+        /// Datetime değerinin gün başlangıç değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static DateTime xGetStartOfDay(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Datetime değerinin gün sonu değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetEndOfDay(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 59, 59);
+        }
+
+        /// <summary>
+        /// Datetime değerinin hafta başlangıç değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="startOfWeek"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetStartOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
+        {
+            int diff = (7 + (dateTime.DayOfWeek - startOfWeek)) % 7;
+            return dateTime.AddDays(-1 * diff).Date;
+        }
+
+        /// <summary>
+        /// Datetime değerinin haftasonu değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="startOfWeek"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetEndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
+        {
+            return xGetStartOfWeek(dateTime, startOfWeek).AddDays(6);
+        }
+
+        /// <summary>
+        /// Datetime değerinin ay başlangıç değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetStartOfMonth(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Year, dateTime.Month, 1, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Datetime değerinin ay sonu değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetEndOfMonth(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Year, dateTime.Month, DateTime.DaysInMonth(dateTime.Year, dateTime.Month), 23, 59, 59);
+        }
+
+        /// <summary>
+        /// Datetime değerinin yıl başlangıç değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetStartOfYear(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Year, 1, 1, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Datetime değerinin yıl sonu değerini döner.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>DateTime</returns>
+        public static DateTime xGetEndOfYear(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Year, 12, 31, 23, 59, 59);
+        }
+
+        /// <summary>
+        /// İki datetime fakını TimeSpan olarak döner.
+        /// </summary>
+        /// <param name="date1"></param>
+        /// <param name="date2"></param>
+        /// <returns>TimeSpan</returns>
+        public static TimeSpan xDateDiffrence(this DateTime date1, DateTime date2)
+        {
+            TimeSpan span;
+            if (date1 < date2)
+                span = date2.Subtract(date1);
+            else
+                span = date1.Subtract(date2);
+            return span;
         }
     }
 }

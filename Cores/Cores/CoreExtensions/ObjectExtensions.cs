@@ -4,6 +4,12 @@ namespace Cores.CoreExtensions
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Nesnenin kopyasını döner.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static T xClone<T>(this T obj) where T : class, new()
         {
             T clone = new T(); 

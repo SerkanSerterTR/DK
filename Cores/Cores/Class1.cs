@@ -18,6 +18,7 @@ namespace Cores
 
             int a = 1;
             double b = a.xParse<int,double>();
+             b.is
 
         }
 

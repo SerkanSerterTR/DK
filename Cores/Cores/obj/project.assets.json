@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Serkan\\Cores\\Cores\\Cores.csproj",
+      "projectUniqueName": "D:\\Serkan\\DK\\Cores\\Cores\\Cores.csproj",
       "projectName": "Cores",
-      "projectPath": "D:\\Serkan\\Cores\\Cores\\Cores.csproj",
+      "projectPath": "D:\\Serkan\\DK\\Cores\\Cores\\Cores.csproj",
       "packagesPath": "C:\\Users\\is\\.nuget\\packages\\",
-      "outputPath": "D:\\Serkan\\Cores\\Cores\\obj\\",
+      "outputPath": "D:\\Serkan\\DK\\Cores\\Cores\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
