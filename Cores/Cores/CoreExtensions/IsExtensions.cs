@@ -64,8 +64,7 @@ namespace Cores.CoreExtensions
         /// <returns>bool</returns>
         public static bool xHasValue<T>(this List<T> list)
         {
-            if (list.Count > 0) return true;
-            return false;
+            return (list == null) ? false : list.Count > 0;
         }
 
         /// <summary>
@@ -76,8 +75,8 @@ namespace Cores.CoreExtensions
         /// <returns>bool</returns>
         public static bool xHasValue<T>(this T[] array)
         {
-            if (array.Length > 0) return true;
-            return false;
+            return (array == null) ? false : array.Length > 0;
         }
+
     }
 }
