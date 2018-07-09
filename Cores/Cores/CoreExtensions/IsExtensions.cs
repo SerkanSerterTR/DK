@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Cores.CoreExtensions
 {
@@ -24,6 +25,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>bool</returns>
+        /// 
         public static bool xIsNotNull(this object obj)
         {
             if (obj == null) return false;
@@ -31,6 +33,7 @@ namespace Cores.CoreExtensions
                 if (string.IsNullOrWhiteSpace(obj as string)) return false;
             return true;
         }
+
         /// <summary>
         /// String değerin sayısal yapında olup olmadığnı döner.
         /// </summary>
@@ -51,6 +54,30 @@ namespace Cores.CoreExtensions
         {
             int output;
             return int.TryParse(value, out output);
+        }
+
+        /// <summary>
+        /// List üzerinde elaman olup olmadığını döner.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <returns>bool</returns>
+        public static bool xHasValue<T>(this List<T> list)
+        {
+            if (list.Count > 0) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Array üzerinde elaman olup olmadığını döner.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <returns>bool</returns>
+        public static bool xHasValue<T>(this T[] array)
+        {
+            if (array.Length > 0) return true;
+            return false;
         }
     }
 }
