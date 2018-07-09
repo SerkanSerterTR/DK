@@ -2,7 +2,7 @@
 
 namespace Cores.CoreExtensions
 {
-    public static class IsExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Nesnenin 'null' değer olup olmadığını döner. 

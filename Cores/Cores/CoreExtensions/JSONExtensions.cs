@@ -1,6 +1,6 @@
 ﻿namespace Cores.CoreExtensions
 {
-    public static class JSONExtensions
+    public static partial class Extensions
     {
         /// <summary>
         /// Verilen nesneyi JSON string formatına dönüştürür.
