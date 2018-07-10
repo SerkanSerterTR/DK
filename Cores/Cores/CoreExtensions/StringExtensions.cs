@@ -1,4 +1,7 @@
-﻿namespace Cores.CoreExtensions
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+namespace Cores.CoreExtensions
 {
     public static partial class Extensions
     {
@@ -55,6 +58,90 @@
                     tmp += texts[i].xFirstCharToUpper(cultereinfo);
             }
             return tmp;
+        }
+
+        public enum RegexPattern
+        {
+            PhoneNumber,
+            Email,
+            URL
+        }
+
+        private static string GetRegexPattern(RegexPattern pattern)
+        {
+            switch (pattern)
+            {
+                case RegexPattern.PhoneNumber:
+                    return @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}";
+                case RegexPattern.Email:
+                    return @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+                case RegexPattern.URL:
+                    return @"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&%\$#_]*)?$";
+                default:
+                    return "";
+            }
+        }
+
+        /// <summary>
+        /// Verilen verilen ifadenin metinde olup olmadığını döner.
+        /// </summary>
+        /// <param name="text"></param> 
+        /// <returns>bool</returns>
+        public static bool xIsMatch(this string text, string exp)
+        {
+            return new Regex(exp).IsMatch(text);
+        }
+
+        /// <summary>
+        /// Verilen başlangıç ve bitiş ifadeleri arasında eşleşen ifadeleri liste olarak döner.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="firstExp">Başlangıç ifadesi</param>
+        /// <param name="lastExp">Bitiş ifadesi</param>
+        /// <returns>List<string></returns>
+        public static List<string> xGetExpressions(this string text, string firstExp, string lastExp)
+        {
+            List<string> matchExpressions = new List<string>();
+            Regex regex = new Regex($"{firstExp}(.+?){lastExp}");
+            MatchCollection matchList = regex.Matches(text);
+            foreach (var exp in matchList)
+                matchExpressions.Add(exp.ToString());
+
+            return matchExpressions;
+        }
+
+        /// <summary>
+        /// Verilen Regex patternine göre eşleşen ifadeleri döner.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="pattern"></param>
+        /// <returns>List<string></returns>
+        public static List<string> xGetExpressionsWithPattern(this string text, string pattern)
+        {
+            List<string> matchExpressions = new List<string>();
+            Regex regex = new Regex(pattern);
+            MatchCollection matchList = regex.Matches(text);
+            foreach (var exp in matchList)
+                matchExpressions.Add(exp.ToString());
+
+            return matchExpressions;
+        }
+
+        /// <summary>
+        /// Verilen Regex patternine göre eşleşen ifadeleri döner.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="pattern"></param>
+        /// <returns>List<string></returns>
+        public static List<string> xGetExpressionsWithPattern(this string text, RegexPattern pattern)
+        {
+            List<string> matchExpressions = new List<string>();
+            Regex regex = new Regex(GetRegexPattern(pattern));
+            MatchCollection matchList = regex.Matches(text);
+            foreach (var exp in matchList)
+                matchExpressions.Add(exp.ToString());
+
+            return matchExpressions;
         }
     }
 }
