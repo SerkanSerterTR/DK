@@ -96,13 +96,30 @@ namespace Cores.CoreExtensions
         /// Verilen başlangıç ve bitiş ifadeleri arasında eşleşen ifadeleri liste olarak döner.
         /// </summary>
         /// <param name="text"></param>
-        /// <param name="firstExp">Başlangıç ifadesi</param>
-        /// <param name="lastExp">Bitiş ifadesi</param>
+        /// <param name="startExp">Başlangıç ifadesi</param>
+        /// <param name="endExp">Bitiş ifadesi</param>
         /// <returns>List<string></returns>
-        public static List<string> xGetExpressions(this string text, string firstExp, string lastExp)
+        public static List<string> xGetExpressions(this string text, string startExp, string endExp)
         {
             List<string> matchExpressions = new List<string>();
-            Regex regex = new Regex($"{firstExp}(.+?){lastExp}");
+            Regex regex = new Regex($"{startExp}(.+?){endExp}");
+            MatchCollection matchList = regex.Matches(text);
+            foreach (var exp in matchList)
+                matchExpressions.Add(exp.ToString());
+
+            return matchExpressions;
+        }
+
+        /// <summary>
+        /// Verilen başlangıç ifadesi ile eşleşen ifadeleri liste olarak döner.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="startExp">Başlangıç ifadesi</param> 
+        /// <returns>List<string></returns>
+        public static List<string> xGetExpressions(this string text, string startExp)
+        {
+            List<string> matchExpressions = new List<string>();
+            Regex regex = new Regex(startExp + @"(.+?)\w+");
             MatchCollection matchList = regex.Matches(text);
             foreach (var exp in matchList)
                 matchExpressions.Add(exp.ToString());
