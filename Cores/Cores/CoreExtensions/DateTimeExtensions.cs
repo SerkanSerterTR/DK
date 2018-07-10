@@ -71,7 +71,7 @@ namespace Cores.CoreExtensions
         /// <param name="date"></param>
         /// <param name="dateTimeFormat"></param>
         /// <returns>DateTime</returns>
-        public static string xToString(this DateTime date, DateTimeFormat dateTimeFormat = DateTimeFormat.DayMonthYear)
+        public static string ToString(this DateTime date, DateTimeFormat dateTimeFormat = DateTimeFormat.DayMonthYear)
         {
             return string.Format(GetDateFormat(dateTimeFormat), date);
         }
@@ -81,7 +81,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>
-        public static DateTime xGetStartOfDay(this DateTime dateTime)
+        public static DateTime GetStartOfDay(this DateTime dateTime)
         {
             return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0);
         }
@@ -91,7 +91,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetEndOfDay(this DateTime dateTime)
+        public static DateTime GetEndOfDay(this DateTime dateTime)
         {
             return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 59, 59);
         }
@@ -102,7 +102,7 @@ namespace Cores.CoreExtensions
         /// <param name="dateTime"></param>
         /// <param name="startOfWeek"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetStartOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
+        public static DateTime GetStartOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
         {
             int diff = (7 + (dateTime.DayOfWeek - startOfWeek)) % 7;
             return dateTime.AddDays(-1 * diff).Date;
@@ -114,9 +114,9 @@ namespace Cores.CoreExtensions
         /// <param name="dateTime"></param>
         /// <param name="startOfWeek"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetEndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
+        public static DateTime GetEndOfWeek(this DateTime dateTime, DayOfWeek startOfWeek = DayOfWeek.Monday)
         {
-            return xGetStartOfWeek(dateTime, startOfWeek).AddDays(6);
+            return GetStartOfWeek(dateTime, startOfWeek).AddDays(6);
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetStartOfMonth(this DateTime dateTime)
+        public static DateTime GetStartOfMonth(this DateTime dateTime)
         {
             return new DateTime(dateTime.Year, dateTime.Month, 1, 0, 0, 0);
         }
@@ -134,7 +134,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetEndOfMonth(this DateTime dateTime)
+        public static DateTime GetEndOfMonth(this DateTime dateTime)
         {
             return new DateTime(dateTime.Year, dateTime.Month, DateTime.DaysInMonth(dateTime.Year, dateTime.Month), 23, 59, 59);
         }
@@ -144,7 +144,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetStartOfYear(this DateTime dateTime)
+        public static DateTime GetStartOfYear(this DateTime dateTime)
         {
             return new DateTime(dateTime.Year, 1, 1, 0, 0, 0);
         }
@@ -154,7 +154,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>DateTime</returns>
-        public static DateTime xGetEndOfYear(this DateTime dateTime)
+        public static DateTime GetEndOfYear(this DateTime dateTime)
         {
             return new DateTime(dateTime.Year, 12, 31, 23, 59, 59);
         }
@@ -165,7 +165,7 @@ namespace Cores.CoreExtensions
         /// <param name="date1"></param>
         /// <param name="date2"></param>
         /// <returns>TimeSpan</returns>
-        public static TimeSpan xDateDiffrence(this DateTime date1, DateTime date2)
+        public static TimeSpan DateDiffrence(this DateTime date1, DateTime date2)
         {
             TimeSpan span;
             if (date1 < date2)

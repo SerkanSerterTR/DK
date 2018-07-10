@@ -22,11 +22,13 @@ namespace Cores
                     throw new NotImplementedException();
                 });
             var ss = new Examples();
-            var ss2 = ss.xClone();
+            var ss2 = ss.Clone();
 
             int a = 1;
-            double b = a.xParse<int, double>();
+            double b = a.Parse<int, double>();
 
+            string email = "se@mm.com 9798798asdads s2@mm.com";
+            var result = email.GetExpressionsWithPattern(Extensions.RegexPattern.Email);
         }
 
         private void Log(Exception arg)

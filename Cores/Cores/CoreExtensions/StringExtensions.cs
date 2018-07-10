@@ -11,7 +11,7 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="cultereinfo"></param>
         /// <returns></returns>
-        public static string xToUpper(this string text, string cultereinfo = "tr-TR")
+        public static string ToUpper(this string text, string cultereinfo = "tr-TR")
         {
             return text.ToUpper(new System.Globalization.CultureInfo(cultereinfo));
         }
@@ -22,7 +22,7 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="cultereinfo"></param>
         /// <returns></returns>
-        public static string xToLower(this string text, string cultereinfo = "tr-TR")
+        public static string ToLower(this string text, string cultereinfo = "tr-TR")
         {
             return text.ToLower(new System.Globalization.CultureInfo(cultereinfo));
         }
@@ -33,10 +33,10 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="cultereinfo"></param>
         /// <returns></returns>
-        public static string xFirstCharToUpper(this string text, string cultereinfo = "tr-TR")
+        public static string FirstCharToUpper(this string text, string cultereinfo = "tr-TR")
         {
-            string tmp = text[0].ToString().xToUpper(cultereinfo);
-            string tmp2 = text.Remove(0).xToLower(cultereinfo);
+            string tmp = text[0].ToString().ToUpper(cultereinfo);
+            string tmp2 = text.Remove(0).ToLower(cultereinfo);
             return tmp + tmp2;
         }
 
@@ -46,16 +46,16 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="cultereinfo"></param>
         /// <returns></returns>
-        public static string xToFirstnameSURNAME(this string text, string cultereinfo = "tr-TR")
+        public static string ToFirstnameSURNAME(this string text, string cultereinfo = "tr-TR")
         {
             string[] texts = text.Split(" ");
             string tmp = "";
             for (int i = 0; i < texts.Length; i++)
             {
                 if (i == texts.Length)
-                    tmp += texts[i].xToUpper(cultereinfo);
+                    tmp += texts[i].ToUpper(cultereinfo);
                 else
-                    tmp += texts[i].xFirstCharToUpper(cultereinfo);
+                    tmp += texts[i].FirstCharToUpper(cultereinfo);
             }
             return tmp;
         }
@@ -87,7 +87,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="text"></param> 
         /// <returns>bool</returns>
-        public static bool xIsMatch(this string text, string exp)
+        public static bool IsMatch(this string text, string exp)
         {
             return new Regex(exp).IsMatch(text);
         }
@@ -99,7 +99,7 @@ namespace Cores.CoreExtensions
         /// <param name="startExp">Başlangıç ifadesi</param>
         /// <param name="endExp">Bitiş ifadesi</param>
         /// <returns>List<string></returns>
-        public static List<string> xGetExpressions(this string text, string startExp, string endExp)
+        public static List<string> GetExpressions(this string text, string startExp, string endExp)
         {
             List<string> matchExpressions = new List<string>();
             Regex regex = new Regex($"{startExp}(.+?){endExp}");
@@ -116,7 +116,7 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="startExp">Başlangıç ifadesi</param> 
         /// <returns>List<string></returns>
-        public static List<string> xGetExpressions(this string text, string startExp)
+        public static List<string> GetExpressions(this string text, string startExp)
         {
             List<string> matchExpressions = new List<string>();
             Regex regex = new Regex(startExp + @"(.+?)\w+");
@@ -133,7 +133,7 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="pattern"></param>
         /// <returns>List<string></returns>
-        public static List<string> xGetExpressionsWithPattern(this string text, string pattern)
+        public static List<string> GetExpressionsWithPattern(this string text, string pattern)
         {
             List<string> matchExpressions = new List<string>();
             Regex regex = new Regex(pattern);
@@ -150,7 +150,7 @@ namespace Cores.CoreExtensions
         /// <param name="text"></param>
         /// <param name="pattern"></param>
         /// <returns>List<string></returns>
-        public static List<string> xGetExpressionsWithPattern(this string text, RegexPattern pattern)
+        public static List<string> GetExpressionsWithPattern(this string text, RegexPattern pattern)
         {
             List<string> matchExpressions = new List<string>();
             Regex regex = new Regex(GetRegexPattern(pattern));

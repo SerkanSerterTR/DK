@@ -8,7 +8,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         /// <returns>string</returns>
-        public static string xToJSONString<T>(this T obj) where T : class
+        public static string ToJSONString<T>(this T obj) where T : class
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
         }
@@ -19,7 +19,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="jsonString"></param>
         /// <returns>T</returns>
-        public static T xJSONtoObject<T>(this string jsonString) where T : class
+        public static T JSONtoObject<T>(this string jsonString) where T : class
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonString);
         }

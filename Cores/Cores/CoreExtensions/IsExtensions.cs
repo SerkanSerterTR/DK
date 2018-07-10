@@ -10,7 +10,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>bool</returns>
-        public static bool xIsNull(this object obj)
+        public static bool IsNull(this object obj)
         {
             if (obj == null) return true;
             if (obj.GetType() == typeof(string))
@@ -25,7 +25,7 @@ namespace Cores.CoreExtensions
         /// <param name="obj"></param>
         /// <returns>bool</returns>
         /// 
-        public static bool xIsNotNull(this object obj)
+        public static bool IsNotNull(this object obj)
         {
             if (obj == null) return false;
             if (obj.GetType() == typeof(string))
@@ -38,7 +38,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="value"></param>
         /// <returns>bool</returns>
-        public static bool xIsNumeric(this string value)
+        public static bool IsNumeric(this string value)
         {
             float output;
             return float.TryParse(value, out output);
@@ -49,7 +49,7 @@ namespace Cores.CoreExtensions
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static bool xIsInteger(this string value)
+        public static bool IsInteger(this string value)
         {
             int output;
             return int.TryParse(value, out output);
@@ -61,7 +61,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns>bool</returns>
-        public static bool xHasValue<T>(this List<T> list)
+        public static bool HasValue<T>(this List<T> list)
         {
             return (list == null) ? false : list.Count > 0;
         }
@@ -72,7 +72,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="array"></param>
         /// <returns>bool</returns>
-        public static bool xHasValue<T>(this T[] array)
+        public static bool HasValue<T>(this T[] array)
         {
             return (array == null) ? false : array.Length > 0;
         }

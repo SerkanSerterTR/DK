@@ -11,7 +11,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="TResult"></typeparam>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static TResult xParse<T, TResult>(this T value)
+        public static TResult Parse<T, TResult>(this T value)
             where T : struct
             where TResult : struct
         {

@@ -11,7 +11,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static T xClone<T>(this T obj) where T : class, new()
+        public static T Clone<T>(this T obj) where T : class, new()
         {
             T clone = new T();
             foreach (var property in obj.GetType().GetProperties())
@@ -30,7 +30,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="mainObject"></param>
         /// <returns></returns>
-        public static void xCopyProperties<T>(this T mainObject, ref T targetObject)
+        public static void CopyProperties<T>(this T mainObject, ref T targetObject)
             where T : class, new()
         {
             foreach (var property in mainObject.GetType().GetProperties())
@@ -48,7 +48,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="mainObject"></param>
         /// <returns></returns>
-        public static void xCopyProperties<TMain, TTarget>(this TMain mainObject, ref TTarget targetObject)
+        public static void CopyProperties<TMain, TTarget>(this TMain mainObject, ref TTarget targetObject)
             where TMain : class, new()
             where TTarget : class, new()
         {
@@ -68,7 +68,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="mainObject"></param>
         /// <returns></returns>
-        public static bool xCompareProperties<T>(this T mainObject, T targetObject)
+        public static bool CompareProperties<T>(this T mainObject, T targetObject)
             where T : class, new()
         {
             foreach (var property in mainObject.GetType().GetProperties())
@@ -89,7 +89,7 @@ namespace Cores.CoreExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="mainObject"></param>
         /// <returns></returns>
-        public static bool xCompareProperties<TMain, TTarget>(this TMain mainObject, TTarget targetObject)
+        public static bool CompareProperties<TMain, TTarget>(this TMain mainObject, TTarget targetObject)
             where TMain : class, new()
             where TTarget : class, new()
         {
