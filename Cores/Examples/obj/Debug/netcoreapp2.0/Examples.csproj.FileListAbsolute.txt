@@ -1,0 +1,14 @@
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Examples.deps.json
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Examples.runtimeconfig.json
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Examples.runtimeconfig.dev.json
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Examples.dll
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Examples.pdb
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Cores.dll
+D:\Serkan\DK\Cores\Examples\bin\Debug\netcoreapp2.0\Cores.pdb
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.csprojAssemblyReference.cache
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.csproj.CoreCompileInputs.cache
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.AssemblyInfoInputs.cache
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.AssemblyInfo.cs
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.csproj.CopyComplete
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.dll
+D:\Serkan\DK\Cores\Examples\obj\Debug\netcoreapp2.0\Examples.pdb

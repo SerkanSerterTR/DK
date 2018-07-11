@@ -16,10 +16,10 @@ namespace Cores.CoreExtensions
             T clone = new T();
             foreach (var property in obj.GetType().GetProperties())
             {
-                var propertyValue = property.GetValue(property.Name);
+                var propertyValue = property.GetValue(obj);
                 var clonePropertyInfo = clone.GetType().GetProperty(property.Name);
                 if (clonePropertyInfo != null)
-                    clonePropertyInfo.SetValue(clone, Convert.ChangeType(propertyValue, clonePropertyInfo.PropertyType), null);
+                    clonePropertyInfo.SetValue(clone, propertyValue, null);
             }
             return clone;
         }
@@ -35,11 +35,11 @@ namespace Cores.CoreExtensions
         {
             foreach (var property in mainObject.GetType().GetProperties())
             {
-                var propertyValue = property.GetValue(property.Name);
+                var propertyValue = property.GetValue(mainObject);
                 var targetPropertyInfo = targetObject.GetType().GetProperty(property.Name);
                 if (targetPropertyInfo != null)
-                    targetPropertyInfo.SetValue(targetObject, Convert.ChangeType(propertyValue, targetPropertyInfo.PropertyType), null);
-            } 
+                    targetPropertyInfo.SetValue(targetObject, propertyValue, null);
+            }
         }
 
         /// <summary>
@@ -54,11 +54,11 @@ namespace Cores.CoreExtensions
         {
             foreach (var property in mainObject.GetType().GetProperties())
             {
-                var propertyValue = property.GetValue(property.Name);
+                var propertyValue = property.GetValue(mainObject);
                 var targetPropertyInfo = targetObject.GetType().GetProperty(property.Name);
                 if (targetPropertyInfo != null)
-                    targetPropertyInfo.SetValue(targetObject, Convert.ChangeType(propertyValue, targetPropertyInfo.PropertyType), null);
-            } 
+                    targetPropertyInfo.SetValue(targetObject, propertyValue, null);
+            }
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Cores.CoreExtensions
         {
             foreach (var property in mainObject.GetType().GetProperties())
             {
-                var propertyValue = property.GetValue(property.Name);
+                var propertyValue = property.GetValue(mainObject);
                 PropertyInfo targetPropertyInfo = targetObject.GetType().GetProperty(property.Name);
                 if (targetPropertyInfo != null)
                     if (propertyValue != targetPropertyInfo.GetValue(targetObject))
@@ -95,7 +95,7 @@ namespace Cores.CoreExtensions
         {
             foreach (var property in mainObject.GetType().GetProperties())
             {
-                var propertyValue = property.GetValue(property.Name);
+                var propertyValue = property.GetValue(mainObject);
                 PropertyInfo targetPropertyInfo = targetObject.GetType().GetProperty(property.Name);
                 if (targetPropertyInfo != null)
                     if (propertyValue != targetPropertyInfo.GetValue(targetObject))
