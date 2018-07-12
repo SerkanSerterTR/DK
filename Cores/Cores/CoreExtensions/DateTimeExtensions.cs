@@ -4,66 +4,114 @@ namespace Cores.CoreExtensions
 {
     public static partial class Extensions
     {
-
+        #region DateTimeFormat
         public enum DateTimeFormat
         {
             DayMonthYear,
             DayMonthShortYear,
-            DayNameDayMonthYear,
+            DayMonthYearDayName,
             DayMonthNameYear,
-            DayNameDayMonthNameYear,
-            DayNameDayMonthNameYearHourMinute,
-            DayNameDayMonthNameYearHourMinuteSecond,
+            DayMonthNameYearDayName,
+            DayMonthNameYearDayNameHourMinute,
+            DayMonthNameYearDayNameHourMinuteSecond,
             DayMonthYearHourMinute,
-            DayNameDayMonthYearHourMinute,
+            DayMonthYearDayNameHourMinute,
             DayMonthYearHourMinuteSecond,
-            DayNameDayMonthYearHourMinuteSecond
+            DayMonthYearHourDayNameMinuteSecond,
+            MonthDayYear,
+            MonthDayYearDayName,
+            MonthDayYearHourMinute,
+            MonthDayYearDayNameHourMinute,
+            MonthDayYearHourMinuteSecond,
+            MonthDayYearDayNameHourMinuteSecond,
+            MonthNameDayYear,
+            MonthNameDayYearDayName,
+            MonthNameDayYearHourMinute,
+            MonthNameDayYearDayNameHourMinute,
+            MonthNameDayYearHourMinuteSecond,
+            MonthNameDayYearHourDayNameMinuteSecond,
         }
 
-        private static string GetDateFormat(DateTimeFormat format)
+        private static string GetDateFormat(DateTimeFormat format, char dateSeperator = '.')
         {
             string dFormat = "";
             switch (format)
             {
                 case DateTimeFormat.DayMonthYear:
-                    dFormat = "dd.MM.yyyy";
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yyyy";
                     break;
                 case DateTimeFormat.DayMonthShortYear:
-                    dFormat = "dd.MM.yy";
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yy";
                     break;
                 case DateTimeFormat.DayMonthNameYear:
                     dFormat = "dd MMMM yyyy";
                     break;
-                case DateTimeFormat.DayNameDayMonthNameYear:
-                    dFormat = "dddd dd MMMM yyyy";
+                case DateTimeFormat.DayMonthNameYearDayName:
+                    dFormat = "dd MMMM yyyy dddd";
                     break;
-                case DateTimeFormat.DayNameDayMonthNameYearHourMinute:
-                    dFormat = "dddd dd MMMM yyyy HH:mm";
+                case DateTimeFormat.DayMonthNameYearDayNameHourMinute:
+                    dFormat = "dd MMMM yyyy dddd HH:mm";
                     break;
-                case DateTimeFormat.DayNameDayMonthNameYearHourMinuteSecond:
-                    dFormat = "dddd dd MMMM yyyy HH:mm:ss";
+                case DateTimeFormat.DayMonthNameYearDayNameHourMinuteSecond:
+                    dFormat = "dd MMMM yyyy dddd HH:mm:ss";
                     break;
-                case DateTimeFormat.DayNameDayMonthYear:
-                    dFormat = "dddd dd.MM.yyyy";
+                case DateTimeFormat.DayMonthYearDayName:
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yyyy dddd";
                     break;
                 case DateTimeFormat.DayMonthYearHourMinute:
-                    dFormat = "dd.MM.yyyy HH:mm";
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yyyy HH:mm";
                     break;
-                case DateTimeFormat.DayNameDayMonthYearHourMinute:
-                    dFormat = "dddd dd.MM.yyyy HH:mm";
+                case DateTimeFormat.DayMonthYearDayNameHourMinute:
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yyyy dddd HH:mm";
                     break;
                 case DateTimeFormat.DayMonthYearHourMinuteSecond:
-                    dFormat = "dd.MM.yyyy HH:mm:ss";
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yyyy HH:mm:ss";
                     break;
-                case DateTimeFormat.DayNameDayMonthYearHourMinuteSecond:
-                    dFormat = "dddd dd.MM.yyyy HH:mm:ss";
+                case DateTimeFormat.DayMonthYearHourDayNameMinuteSecond:
+                    dFormat = $"dd{dateSeperator}MM{dateSeperator}yyyy dddd HH:mm:ss";
+                    break;
+                case DateTimeFormat.MonthDayYear:
+                    dFormat = $"MM{dateSeperator}dd{dateSeperator}yyyy";
+                    break;
+                case DateTimeFormat.MonthDayYearDayName:
+                    dFormat = "MMMM dd yyyy";
+                    break;
+                case DateTimeFormat.MonthDayYearHourMinute:
+                    dFormat = "MMMM dd yyyy HH:mm";
+                    break;
+                case DateTimeFormat.MonthDayYearDayNameHourMinute:
+                    dFormat = "MMMM dd yyyy dddd HH:mm";
+                    break;
+                case DateTimeFormat.MonthDayYearHourMinuteSecond:
+                    dFormat = $"MM{dateSeperator}dd{dateSeperator}yyyy HH:mm:ss";
+                    break;
+                case DateTimeFormat.MonthDayYearDayNameHourMinuteSecond:
+                    dFormat = $"MM{dateSeperator}dd{dateSeperator}yyyy HH:mm:ss";
+                    break;
+                case DateTimeFormat.MonthNameDayYear:
+                    dFormat = "MMMM dd yyyy";
+                    break;
+                case DateTimeFormat.MonthNameDayYearDayName:
+                    dFormat = "MMMM dd yyyy dddd";
+                    break;
+                case DateTimeFormat.MonthNameDayYearHourMinute:
+                    dFormat = "MMMM dd yyyy HH:mm";
+                    break;
+                case DateTimeFormat.MonthNameDayYearDayNameHourMinute:
+                    dFormat = "MMMM dd yyyy dddd HH:mm";
+                    break;
+                case DateTimeFormat.MonthNameDayYearHourMinuteSecond:
+                    dFormat = "MMMM dd yyyy HH:mm:ss";
+                    break;
+                case DateTimeFormat.MonthNameDayYearHourDayNameMinuteSecond:
+                    dFormat = "MMMM dd yyyy dddd HH:mm:ss";
                     break;
                 default:
-                    dFormat = string.Empty;
                     break;
             }
             return dFormat;
         }
+        #endregion
 
         /// <summary>
         /// DateTime nesnesini formatıyla string türüne çevirir.
@@ -71,9 +119,9 @@ namespace Cores.CoreExtensions
         /// <param name="date"></param>
         /// <param name="dateTimeFormat"></param>
         /// <returns>DateTime</returns>
-        public static string ToString(this DateTime date, DateTimeFormat dateTimeFormat = DateTimeFormat.DayMonthYear)
+        public static string ToString(this DateTime date, DateTimeFormat dateTimeFormat = DateTimeFormat.DayMonthYear, char dateSeperator = '.')
         {
-            return string.Format(GetDateFormat(dateTimeFormat), date);
+            return string.Format(GetDateFormat(dateTimeFormat, dateSeperator), date);
         }
 
         /// <summary>
