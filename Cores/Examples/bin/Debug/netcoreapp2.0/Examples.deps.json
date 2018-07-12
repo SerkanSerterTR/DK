@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "883f5ab0e357ef56d00e5851b3cee30b45ba651b"
+    "signature": "40e958a23228aba4311236e45e836ddb5f2e4e65"
   },
   "compilationOptions": {},
   "targets": {
@@ -14,6 +14,12 @@
           "Examples.dll": {}
         }
       },
+      "EntityFramework/6.2.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -21,6 +27,7 @@
       },
       "Cores/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.2.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
@@ -34,6 +41,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EntityFramework/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
+      "path": "entityframework/6.2.0",
+      "hashPath": "entityframework.6.2.0.nupkg.sha512"
     },
     "Newtonsoft.Json/11.0.2": {
       "type": "package",
