@@ -1,0 +1,8 @@
+D:\Serkan\DK\Cores\Cores\bin\Release\netcoreapp2.0\Cores.deps.json
+D:\Serkan\DK\Cores\Cores\bin\Release\netcoreapp2.0\Cores.dll
+D:\Serkan\DK\Cores\Cores\bin\Release\netcoreapp2.0\Cores.pdb
+D:\Serkan\DK\Cores\Cores\obj\Release\netcoreapp2.0\Cores.csproj.CoreCompileInputs.cache
+D:\Serkan\DK\Cores\Cores\obj\Release\netcoreapp2.0\Cores.AssemblyInfoInputs.cache
+D:\Serkan\DK\Cores\Cores\obj\Release\netcoreapp2.0\Cores.AssemblyInfo.cs
+D:\Serkan\DK\Cores\Cores\obj\Release\netcoreapp2.0\Cores.dll
+D:\Serkan\DK\Cores\Cores\obj\Release\netcoreapp2.0\Cores.pdb

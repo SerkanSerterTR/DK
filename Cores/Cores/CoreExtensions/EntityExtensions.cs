@@ -105,6 +105,21 @@ namespace Cores.CoreExtensions
         }
 
         /// <summary>
+        /// Filtreli/filtresiz sorgu sonucunu sayfalama ile IQueryable sınıfından liste olarak döner.
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="dbSet"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        public static IQueryable<TEntity> GetIQueryableWithPaging<TEntity>(this DbSet<TEntity> dbSet, int pageNumber, int pageSize, Expression<Func<TEntity, bool>> filter = null)
+             where TEntity : class
+        {
+            return filter != null ? dbSet.Where(filter).Skip(pageNumber).Take(pageSize) : dbSet.Skip(pageNumber).Take(pageSize);
+        }
+
+        /// <summary>
         /// Entity nesnesini SaveChanges ile kaydeder.
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>

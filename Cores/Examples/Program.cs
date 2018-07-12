@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using Cores.CoreExtensions;
 
 namespace Examples
@@ -17,6 +18,8 @@ namespace Examples
             public string Val2 { get; set; }
         }
 
+        static DbSet<Object1> db { get; set; }
+
         static void Main(string[] args)
         {
             Object1 object1 = new Object1();
@@ -29,6 +32,8 @@ namespace Examples
             object1.CopyProperties(ref object2);
 
             var ob2val2 = object2.Val2;
+
+            var list = db.GetList(p => p.Val1 == 1); 
 
             Console.WriteLine(ob2val2);
             Console.ReadKey();
