@@ -6,3 +6,4 @@ D:\Serkan\DK\Cores\Cores\obj\Debug\netcoreapp2.0\Cores.AssemblyInfoInputs.cache
 D:\Serkan\DK\Cores\Cores\obj\Debug\netcoreapp2.0\Cores.AssemblyInfo.cs
 D:\Serkan\DK\Cores\Cores\obj\Debug\netcoreapp2.0\Cores.dll
 D:\Serkan\DK\Cores\Cores\obj\Debug\netcoreapp2.0\Cores.pdb
+D:\Serkan\DK\Cores\Cores\obj\Debug\netcoreapp2.0\Cores.csprojAssemblyReference.cache

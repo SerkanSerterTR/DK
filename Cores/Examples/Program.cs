@@ -33,7 +33,9 @@ namespace Examples
 
             var ob2val2 = object2.Val2;
 
-            var list = db.GetList(p => p.Val1 == 1); 
+            //var list = db.GetList(p => p.Val1 == 1);
+
+            bool t = object2.Val1.IsEqual(2);
 
             Console.WriteLine(ob2val2);
             Console.ReadKey();

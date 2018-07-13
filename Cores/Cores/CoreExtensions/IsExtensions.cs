@@ -77,5 +77,29 @@ namespace Cores.CoreExtensions
             return (array == null) ? false : array.Length > 0;
         }
 
+        /// <summary>
+        /// Verilen değerin eşitliğini kontrol eder.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="main"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static bool IsEqual<T>(this T main, T target) where T : struct
+        {
+            return EqualityComparer<T>.Default.Equals(main, target);
+        }
+
+        /// <summary>
+        /// Verilen değerin eşitliğini kontrol eder.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="main"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static bool IsNotEqual<T>(this T main, T target) where T : struct
+        {
+            return !EqualityComparer<T>.Default.Equals(main, target);
+        }
+
     }
 }
