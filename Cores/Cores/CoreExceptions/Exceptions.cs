@@ -7,12 +7,12 @@ namespace Cores.CoreExceptions
         /// <summary>
         /// Gönderilen metotda Exception varsa Exception fırlatır.
         /// </summary>
-        /// <param name="func"></param>
-        public static void ThrowException(Action func)
+        /// <param name="method"></param>
+        public static void ThrowException(Action method)
         {
             try
             {
-                func.Invoke();
+                method.Invoke();
             }
             catch (Exception ex)
             {
@@ -23,12 +23,12 @@ namespace Cores.CoreExceptions
         /// <summary>
         /// Gönderilen metotda Exception varsa Exception fırlatır.
         /// </summary>
-        /// <param name="func"></param>
-        public static void ThrowException<T>(Func<T> func)
+        /// <param name="method"></param>
+        public static void ThrowException<T>(Func<T> method)
         {
             try
             {
-                func.Invoke();
+                method.Invoke();
             }
             catch (Exception ex)
             {
@@ -37,84 +37,84 @@ namespace Cores.CoreExceptions
         }
 
         /// <summary>
-        /// Gönderilen metotda Exception varsa log metotunu çalıştırır ve Exception fırlatır.
+        /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır ve Exception fırlatır.
         /// </summary>
-        /// <param name="func"></param>
-        public static object ThrowExceptionWithLog<T>(Func<T> func, Func<Exception, object> logFunc)
+        /// <param name="method"></param>
+        public static object ThrowExceptionWithLog<T>(Func<T> method, Func<Exception, object> exceptionMethod)
         {
             try
             {
-                return func.Invoke();
+                return method.Invoke();
             }
             catch (Exception ex)
             {
-                return logFunc.Invoke(ex);
+                return exceptionMethod.Invoke(ex);
                 throw ex;
             }
         }
 
         /// <summary>
-        /// Gönderilen metotda Exception varsa log metotunu çalıştırır ve Exception fırlatır.
+        /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır ve Exception fırlatır.
         /// </summary>
-        /// <param name="func"></param>
-        public static void ThrowExceptionWithLog(Action func, Func<Exception, object> logFunc)
+        /// <param name="method"></param>
+        public static void ThrowExceptionWithLog(Action method, Func<Exception, object> exceptionMethod)
         {
             try
             {
-                func.Invoke();
+                method.Invoke();
             }
             catch (Exception ex)
             {
-                logFunc.Invoke(ex);
+                exceptionMethod.Invoke(ex);
                 throw ex;
             }
         }
 
         /// <summary>
-        /// Gönderilen metotda Exception varsa log metotunu çalıştırır.
+        /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır.
         /// </summary>
-        /// <param name="func"></param>
-        public static object ExceptionWithLog<T>(Func<T> func, Func<Exception, object> logFunc)
+        /// <param name="method"></param>
+        public static object ExceptionWithLog<T>(Func<T> method, Func<Exception, object> exceptionMethod)
         {
             try
             {
-                return func.Invoke();
+                return method.Invoke();
             }
             catch (Exception ex)
             {
-                return logFunc.Invoke(ex);
+                return exceptionMethod.Invoke(ex);
             }
         }
 
         /// <summary>
-        /// Gönderilen metotda Exception varsa log metotunu çalıştırır.
+        /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır.
         /// </summary>
-        /// <param name="func"></param>
-        public static void ExceptionWithLog(Action func, Func<Exception, object> logFunc)
+        /// <param name="method"></param>
+        public static void ExceptionWithLog(Action method, Func<Exception, object> exceptionMethod)
         {
             try
             {
-                func.Invoke();
+                method.Invoke();
             }
             catch (Exception ex)
             {
-                logFunc.Invoke(ex);
+                exceptionMethod.Invoke(ex);
             }
         }
 
         /// <summary>
-        /// Gönderilen metotda Exception varsa log metotunu çalıştırır.
+        /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır.
         /// </summary>
-        /// <param name="func"></param>
-        public static void ExceptionWithVoidLog(Action func, Action<Exception> logFuncVoid)
+        /// <param name="method"></param>
+        public static void ExceptionWithVoidLog(Action method, Action<Exception> exceptionMethod)
         {
             try
             {
-                func.Invoke();
+                method.Invoke();
             }
             catch (Exception ex)
             {
-                logFuncVoid.Invoke(ex);
+                exceptionMethod.Invoke(ex);
             }
         }
     }

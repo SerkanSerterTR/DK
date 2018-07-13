@@ -56,7 +56,7 @@ namespace Cores
             var ob2val2 = object2.Val2;
         }
 
-        private void Log(Exception arg)
+        public void Log(Exception arg)
         {
             throw new NotImplementedException();
         }

@@ -18,7 +18,7 @@ namespace Cores.CoreExtensions
         /// <returns></returns>
         public static TEntity GetSingle<TEntity>(this DbSet<TEntity> dbSet, Expression<Func<TEntity, bool>> filter)
              where TEntity : class
-        {
+        { 
             return dbSet.Where(filter).SingleOrDefault();
         }
 
