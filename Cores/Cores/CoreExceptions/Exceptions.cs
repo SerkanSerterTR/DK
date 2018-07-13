@@ -40,7 +40,7 @@ namespace Cores.CoreExceptions
         /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır ve Exception fırlatır.
         /// </summary>
         /// <param name="method"></param>
-        public static object ThrowExceptionWithLog<T>(Func<T> method, Func<Exception, object> exceptionMethod)
+        public static object ThrowException<T>(Func<T> method, Func<Exception, object> exceptionMethod)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Cores.CoreExceptions
         /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır ve Exception fırlatır.
         /// </summary>
         /// <param name="method"></param>
-        public static void ThrowExceptionWithLog(Action method, Func<Exception, object> exceptionMethod)
+        public static void ThrowException(Action method, Func<Exception, object> exceptionMethod)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace Cores.CoreExceptions
         /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır.
         /// </summary>
         /// <param name="method"></param>
-        public static object ExceptionWithLog<T>(Func<T> method, Func<Exception, object> exceptionMethod)
+        public static object Exception<T>(Func<T> method, Func<Exception, object> exceptionMethod)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Cores.CoreExceptions
         /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır.
         /// </summary>
         /// <param name="method"></param>
-        public static void ExceptionWithLog(Action method, Func<Exception, object> exceptionMethod)
+        public static void Exception(Action method, Func<Exception, object> exceptionMethod)
         {
             try
             {
@@ -106,7 +106,7 @@ namespace Cores.CoreExceptions
         /// Gönderilen metotda Exception varsa Exception metotunu çalıştırır.
         /// </summary>
         /// <param name="method"></param>
-        public static void ExceptionWithVoidLog(Action method, Action<Exception> exceptionMethod)
+        public static void ExceptionVoid(Action method, Action<Exception> exceptionMethod)
         {
             try
             {

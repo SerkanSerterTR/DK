@@ -23,8 +23,8 @@ namespace Cores
         {
             Exceptions.ThrowException(Test);
             Exceptions.ThrowException(() => { throw new NotImplementedException(); });
-            Exceptions.ExceptionWithVoidLog(Test, Log);
-            Exceptions.ExceptionWithVoidLog(
+            Exceptions.ExceptionVoid(Test, Log);
+            Exceptions.Exception(
                 () =>
                 {
                     throw new NotImplementedException();
